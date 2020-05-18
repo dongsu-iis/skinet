@@ -8,6 +8,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.4.1"/>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.4.1"/>
   </ItemGroup>
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
