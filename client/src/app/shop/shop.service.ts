@@ -5,6 +5,7 @@ import { ShopParams } from '../shared/models/shopParams';
 import { IPagination } from '../shared/models/pagination';
 import { IBrand } from '../shared/models/brand';
 import { IType } from '../shared/models/productType';
+import { IProduct } from '../shared/models/product';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,7 @@ export class ShopService {
     params = params.append('pageIndex', shopParams.pageNumber.toString());
     params = params.append('pageSize', shopParams.pageSize.toString());
 
-    return this.http.get<IPagination>(`${this.baseUrl}products`, { observe: 'response', params })
+    return this.http.get<IPagination<IProduct>>(`${this.baseUrl}products`, { observe: 'response', params })
       .pipe(
         map(response => {
           return response.body;
