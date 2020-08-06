@@ -5,4 +5,4 @@ appsettings.json
 .vs
 .vscode
 .DS_Store
-docker/redis/data
+docker/data
