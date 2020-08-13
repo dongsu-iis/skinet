@@ -9,6 +9,7 @@ namespace API.Extensions {
                 c.SwaggerDoc ("v1", new OpenApiInfo { Title = "SkiNet API", Version = "v1" });
             });
             return services;
+
         }
 
         public static IApplicationBuilder UseSwaggerDocumention (this IApplicationBuilder app) {
