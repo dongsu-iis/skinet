@@ -1,15 +1,17 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace API.Controllers {
+namespace API.Controllers
+{
     [ApiController]
-    [Route ("[controller]")]
-    [ApiExplorerSettings (IgnoreApi = true)]
-    public class WeatherForecastController : ControllerBase {
-        private static readonly string[] Summaries = new [] {
+    [Route("[controller]")]
+    [ApiExplorerSettings(IgnoreApi = true)]
+    public class WeatherForecastController : ControllerBase
+    {
+        private static readonly string[] Summaries = new[] {
             "Freezing",
             "Bracing",
             "Chilly",
@@ -24,19 +26,22 @@ namespace API.Controllers {
 
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController (ILogger<WeatherForecastController> logger) {
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        {
             _logger = logger;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get () {
-            var rng = new Random ();
-            return Enumerable.Range (1, 5).Select (index => new WeatherForecast {
-                    Date = DateTime.Now.AddDays (index),
-                        TemperatureC = rng.Next (-20, 55),
-                        Summary = Summaries[rng.Next (Summaries.Length)]
-                })
-                .ToArray ();
+        public IEnumerable<WeatherForecast> Get()
+        {
+            var rng = new Random();
+            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateTime.Now.AddDays(index),
+                TemperatureC = rng.Next(-20, 55),
+                Summary = Summaries[rng.Next(Summaries.Length)]
+            })
+                .ToArray();
         }
     }
 }

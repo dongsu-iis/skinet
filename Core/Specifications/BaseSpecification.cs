@@ -2,20 +2,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 
-namespace Core.Specifications {
-    public class BaseSpecification<T> : ISpecification<T> {
+namespace Core.Specifications
+{
+    public class BaseSpecification<T> : ISpecification<T>
+    {
 
-        public BaseSpecification () {
+        public BaseSpecification()
+        {
 
         }
-        public BaseSpecification (Expression<Func<T, bool>> criteria) {
+        public BaseSpecification(Expression<Func<T, bool>> criteria)
+        {
             Criteria = criteria;
         }
 
         public Expression<Func<T, bool>> Criteria { get; }
 
         public List<Expression<Func<T, object>>> Includes { get; } =
-        new List<Expression<Func<T, object>>> ();
+        new List<Expression<Func<T, object>>>();
 
         public Expression<Func<T, object>> OrderBy { get; private set; }
 
@@ -27,19 +31,23 @@ namespace Core.Specifications {
 
         public bool IsPagingEnabled { get; private set; }
 
-        protected void AddInclude (Expression<Func<T, object>> includesExpression) {
-            Includes.Add (includesExpression);
+        protected void AddInclude(Expression<Func<T, object>> includesExpression)
+        {
+            Includes.Add(includesExpression);
         }
 
-        protected void AddOrderBy (Expression<Func<T, object>> orderByExpression) {
+        protected void AddOrderBy(Expression<Func<T, object>> orderByExpression)
+        {
             OrderBy = orderByExpression;
         }
 
-        protected void AddOrderByDescending (Expression<Func<T, object>> orderByDescendingExpression) {
+        protected void AddOrderByDescending(Expression<Func<T, object>> orderByDescendingExpression)
+        {
             OrderByDescending = orderByDescendingExpression;
         }
 
-        protected void ApplyPaging (int skip, int take) {
+        protected void ApplyPaging(int skip, int take)
+        {
             Skip = skip;
             Take = take;
             IsPagingEnabled = true;
