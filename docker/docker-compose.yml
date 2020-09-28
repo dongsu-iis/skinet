@@ -17,27 +17,3 @@ services:
     volumes:
       - ./data/redisinsight:/db
 
-  #MySQL
-  mysql:
-    image: mysql:latest
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_bin
-    restart: always
-    ports:
-      - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: pass
-      MYSQL_DATABASE: skinet_db
-      MYSQL_USER: skinet_user
-      MYSQL_PASSWORD: skinet_pass
-      TZ: 'Asia/Tokyo'
-    volumes:
-     - ./data/mysql:/var/lib/mysql
-
-  #Adminer
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
-    volumes:
-     - ./data/adminer:/var/lib/mysql 
